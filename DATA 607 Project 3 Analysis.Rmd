@@ -36,6 +36,9 @@ tidied_Linkedin <- read.csv('https://raw.githubusercontent.com/suswong/DATA-607-
 We used a loop that creates a new column for each skill and return a "1" or "0" for each row (job posting). It returns a "1" if the skill is present in the "Job_description" column, and "0" if the skill is not in the column.
 
 ### General Skills
+
+Looking for Data Scientist skills from last tidied dataset.
+
 https://towardsdatascience.com/top-20-skills-and-keywords-for-data-science-6bc6bfc8c28a
 ```{r}
 general_skills <- tidied_Linkedin[c('Job_title','Company','Job_location_City','Job_location_State','Seniority_level','Employment_type','Job_function','Industries','Job_description')]
@@ -52,6 +55,7 @@ colnames(general_skills) <- c("Job_title", "Company", "Job_location_City", "Job_
 ```
 
 ### Techincal Skills
+List of technical skills for Data Scientis/ Analyst
 
 ```{r}
 technical_skills <- tidied_Linkedin[c('Job_title','Company','Job_location_City','Job_location_State','Seniority_level','Employment_type','Job_function','Industries','Job_description')]
@@ -66,6 +70,7 @@ colnames(technical_skills) <- c("Job_title", "Company", "Job_location_City", "Jo
 ```
 
 ### Programming Skills
+List of programing skills for Data Scientist/Analyst
 
 ```{r}
 programming_skills <- tidied_Linkedin[c('Job_title','Company','Job_location_City','Job_location_State','Seniority_level','Employment_type','Job_function','Industries','Job_description')]
@@ -83,6 +88,7 @@ colnames(programming_skills) <- c("Job_title", "Company", "Job_location_City", "
 ```
 
 ### Non-Technical Skills
+List of Non-Technical Skills for Data Scientist/Analyst
 
 ```{r}
 nontechnical_skills <- tidied_Linkedin[c('Job_title','Company','Job_location_City','Job_location_State','Seniority_level','Employment_type','Job_function','Industries','Job_description')]
@@ -99,6 +105,7 @@ colnames(nontechnical_skills) <- c("Job_title", "Company", "Job_location_City", 
 ```
 
 ## Frequent Skills {.tabset}
+In this section we will count the number of times a skill is a range. Our goal is to plot  the top 10 General, Technical, Programming and non technical skills. 
 
 ### General Skills 
 ```{r, message=FALSE}
@@ -165,6 +172,7 @@ datatable(frequent_nontechnical_skill)
 # Data Visualization {.tabset}
 
 ## General Skills
+Top ten 10 General skills
 ```{r, warning=FALSE}
 frequent_general_skill %>% 
     arrange(desc(percentage)) %>%
@@ -177,7 +185,7 @@ frequent_general_skill %>%
 ```
 
 ## Technical Skills
-
+Top ten 10 Technical skills
 ```{r, warning=FALSE}
 frequent_technical_skill %>% 
     arrange(desc(percentage)) %>%
@@ -190,7 +198,7 @@ frequent_technical_skill %>%
 ```
 
 ## Programming Languages
-
+Top 10 Programming skills
 ```{r, warning=FALSE}
 frequent_programming_skill %>% 
     arrange(desc(percentage)) %>%
@@ -202,6 +210,7 @@ frequent_programming_skill %>%
   xlab("Skill")
 ```
 ## Non-Technical Skills
+Top 10 Non-Technical skills
 ```{r, warning=FALSE}
 frequent_nontechnical_skill %>% 
     arrange(desc(percentage)) %>%
